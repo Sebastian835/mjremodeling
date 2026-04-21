@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&J Demolition & Remodeling LLC | From Demolition to Transformation</title>
+    <link rel="icon" type="image/png" href="img/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --concrete: #2B2B2B;
+            --concrete-light: #3A3A3A;
+            --concrete-mid: #1E1E1E;
+            --concrete-pale: #4A4A4A;
+            --orange: #E8650A;
+            --orange-bright: #FF7A1A;
+            --orange-dark: #C0520A;
+            --white: #F2F0EC;
+            --white-dim: rgba(242, 240, 236, 0.7);
+            --white-faint: rgba(242, 240, 236, 0.12);
+            --blue-accent: #1B3A8A;
+            --bg-light: #F0EDE8;
+            --bg-mid: #E5E2DC;
+            --text-dark: #1A1A1A;
+            --text-mid: #4A4A4A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* CONCRETE TEXTURE */
+        .concrete-texture {
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            background: rgba(27, 27, 27, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 42px;
+            width: auto;
+        }
+
+        .nav-logo-text .brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            color: var(--white);
+            letter-spacing: 0.06em;
+            line-height: 1;
+        }
+
+        .nav-logo-text .sub {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--orange);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(242, 240, 236, 0.7);
+            transition: color 0.25s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 100%;
+            height: 2px;
+            background: var(--orange);
+            transition: right 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            right: 0;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ── HERO ── */
+        #home {
+            min-height: 100vh;
+            background: var(--concrete-mid);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(232, 101, 10, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(232, 101, 10, 0.08) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-diagonal {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 30%, rgba(232, 101, 10, 0.06) 100%);
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .hero-img-panel {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 42%;
+        }
+
+        .hero-img-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--concrete-mid) 0%, rgba(30, 30, 30, 0.3) 40%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-img-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -2px;
+            bottom: 0;
+            width: 4px;
+            background: var(--orange);
+            z-index: 2;
+        }
+
+        .hero-img-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 120px 5% 80px;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--orange);
+            color: var(--white);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            padding: 7px 16px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            line-height: 0.9;
+            color: var(--white);
+            letter-spacing: 0.02em;
+            margin-bottom: 8px;
+        }
+
+        .hero-title .orange {
+            color: var(--orange);
+        }
+
+        .hero-subtitle {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.8rem);
+            color: rgba(242, 240, 236, 0.35);
+            letter-spacing: 0.08em;
+            margin-bottom: 28px;
+        }
+
+        .hero-tagline {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
+            color: var(--orange-bright);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(242, 240, 236, 0.55);
+            max-width: 460px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 0;
+            margin-bottom: 48px;
+        }
+
+        .hero-stat {
+            padding: 20px 32px 20px 0;
+            border-right: 1px solid rgba(232, 101, 10, 0.3);
+            margin-right: 32px;
+        }
+
+        .hero-stat:last-child {
+            border-right: none;
+            margin-right: 0;
+        }
+
+        .hero-stat .num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.2rem;
+            color: var(--orange);
+            line-height: 1;
+        }
+
+        .hero-stat .label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(242, 240, 236, 0.4);
+            margin-top: 2px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--orange);
+            color: var(--white);
+            padding: 16px 36px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(232, 101, 10, 0.4);
+        }
+
+        /* ── SECTION COMMONS ── */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-eyebrow {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-eyebrow::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--orange);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            color: var(--text-dark);
+            line-height: 0.95;
+            letter-spacing: 0.03em;
+        }
+
+        .section-title .accent {
+            color: var(--orange);
+        }
+
+        /* ── ABOUT ── */
+        #about {
+            background: var(--bg-light);
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            margin-top: 56px;
+        }
+
+        .about-images {
+            position: relative;
+            height: 500px;
+        }
+
+        .about-img-main {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 360px;
+            object-fit: contain;
+            background: #111;
+        }
+
+        .about-img-sec {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 55%;
+            height: 220px;
+            object-fit: contain;
+            background: #111;
+            border: 5px solid var(--bg-light);
+        }
+
+        .about-years-badge {
+            position: absolute;
+            bottom: 60px;
+            right: 0;
+            background: var(--orange);
+            color: var(--white);
+            padding: 22px 26px;
+            text-align: center;
+            z-index: 3;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 8px 100%);
+        }
+
+        .about-years-badge .big {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            line-height: 1;
+            display: block;
+        }
+
+        .about-years-badge .small {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text-mid);
+        }
+
+        .about-content p strong {
+            color: var(--text-dark);
+        }
+
+        .about-divider {
+            height: 2px;
+            background: linear-gradient(to right, var(--orange), transparent);
+        }
+
+        .mv-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .mv-block {
+            background: var(--concrete);
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--orange);
+        }
+
+        .mv-block h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            color: var(--orange);
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mv-block p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: rgba(242, 240, 236, 0.6);
+            margin: 0;
+        }
+
+        /* ── BENEFITS ── */
+        #benefits {
+            background: var(--concrete);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #benefits::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(232, 101, 10, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(232, 101, 10, 0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+
+        #benefits .section-title {
+            color: var(--white);
+        }
+
+        #benefits .section-eyebrow {
+            color: var(--orange-bright);
+        }
+
+        #benefits .section-eyebrow::before {
+            background: var(--orange-bright);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-top: 56px;
+            background: rgba(232, 101, 10, 0.15);
+        }
+
+        .benefit-item {
+            background: var(--concrete);
+            padding: 40px 28px;
+            position: relative;
+            transition: all 0.35s;
+            overflow: hidden;
+        }
+
+        .benefit-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--orange);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+
+        .benefit-item:hover {
+            background: var(--concrete-light);
+            transform: translateY(-3px);
+        }
+
+        .benefit-item:hover::after {
+            transform: scaleX(1);
+        }
+
+        .benefit-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: rgba(232, 101, 10, 0.1);
+            line-height: 1;
+            margin-bottom: -16px;
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .benefit-icon i {
+            font-size: 1.2rem;
+            color: var(--orange);
+        }
+
+        .benefit-item h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .benefit-item p {
+            font-size: 0.86rem;
+            line-height: 1.72;
+            color: rgba(242, 240, 236, 0.5);
+        }
+
+        /* ── SERVICES ── */
+        #services {
+            background: var(--bg-mid);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 56px;
+        }
+
+        .service-card {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+            border-bottom-color: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .service-card-header {
+            background: var(--concrete);
+            padding: 28px 32px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .service-num-big {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.4rem;
+            color: var(--orange);
+            line-height: 1;
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        .service-icon-wrap {
+            width: 46px;
+            height: 46px;
+            background: var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
+        }
+
+        .service-icon-wrap i {
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .service-card-header h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: 0.06em;
+            line-height: 1.1;
+        }
+
+        .service-card-body {
+            padding: 28px 32px;
+        }
+
+        .service-card-body p {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: var(--text-mid);
+            margin-bottom: 20px;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .service-tag {
+            background: rgba(232, 101, 10, 0.1);
+            color: var(--orange-dark);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-left: 2px solid var(--orange);
+        }
+
+        /* ── GALLERY ── */
+        #gallery {
+            background: #111;
+            padding: 100px 0;
+        }
+
+        .gallery-header {
+            padding: 0 5%;
+            margin-bottom: 48px;
+        }
+
+        .gallery-header .section-eyebrow {
+            color: var(--orange);
+        }
+
+        .gallery-header .section-eyebrow::before {
+            background: var(--orange);
+        }
+
+        .gallery-header .section-title {
+            color: var(--white);
+        }
+
+        .gallery-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            height: 580px;
+            position: relative;
+            background: #0A0A0A;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .gallery-slide-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: var(--orange);
+            color: var(--white);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+        }
+
+        .gallery-controls {
+            position: absolute;
+            bottom: 24px;
+            right: 5%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .gallery-btn {
+            width: 48px;
+            height: 48px;
+            background: var(--orange);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+        }
+
+        .gallery-btn:hover {
+            background: var(--orange-bright);
+            transform: scale(1.05);
+        }
+
+        .gallery-counter {
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.12em;
+            padding: 10px 18px;
+            backdrop-filter: blur(4px);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        /* ── CONTACT ── */
+        #contact {
+            background: var(--bg-light);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            margin-top: 56px;
+            align-items: start;
+        }
+
+        .contact-left {}
+
+        .contact-owner-card {
+            background: var(--concrete);
+            padding: 28px 32px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-owner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--orange);
+        }
+
+        .owner-monogram {
+            width: 56px;
+            height: 56px;
+            background: var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            color: var(--white);
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
+        }
+
+        .owner-details .name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .owner-details .role {
+            font-size: 0.75rem;
+            color: var(--orange);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact-info-list {
+            margin-bottom: 36px;
+        }
+
+        .contact-info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info-row:first-child {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .ci-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--concrete);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ci-icon i {
+            font-size: 0.85rem;
+            color: var(--orange);
+        }
+
+        .ci-text .label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .ci-text .value {
+            font-size: 0.97rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* CTA Buttons */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn i {
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .cta-btn span {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cta-btn .btn-lbl {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            opacity: 0.75;
+            margin-bottom: 2px;
+        }
+
+        .cta-btn .btn-val {
+            font-size: 0.9rem;
+        }
+
+        .cta-call {
+            background: var(--concrete);
+            color: var(--white);
+            border-left: 3px solid var(--orange);
+        }
+
+        .cta-call:hover {
+            background: var(--concrete-light);
+            transform: translateX(4px);
+        }
+
+        .cta-wa {
+            background: #1A6B32;
+            color: #fff;
+            border-left: 3px solid #25A244;
+        }
+
+        .cta-wa:hover {
+            background: #1E7A3A;
+            transform: translateX(4px);
+        }
+
+        .cta-email {
+            background: var(--orange);
+            color: var(--white);
+            border-left: 3px solid var(--orange-bright);
+        }
+
+        .cta-email:hover {
+            background: var(--orange-bright);
+            transform: translateX(4px);
+        }
+
+        .cta-sms {
+            background: var(--blue-accent);
+            color: var(--white);
+            border-left: 3px solid #2A5ACC;
+        }
+
+        .cta-sms:hover {
+            background: #244AAA;
+            transform: translateX(4px);
+        }
+
+        .contact-right {}
+
+        .map-wrap {
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .map-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--orange);
+            z-index: 1;
+        }
+
+        .map-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .map-footer {
+            background: var(--concrete);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(242, 240, 236, 0.7);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.06em;
+        }
+
+        .map-footer i {
+            color: var(--orange);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #111;
+            padding: 60px 5% 28px;
+            color: rgba(242, 240, 236, 0.5);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 56px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand .tagline {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--orange);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.12em;
+            color: var(--orange);
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: rgba(242, 240, 236, 0.45);
+            font-size: 0.87rem;
+            transition: color 0.3s;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+        }
+
+        .footer-tagline {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-style: italic;
+            color: var(--orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+
+            .about-layout,
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-images {
+                height: 320px;
+            }
+
+            .about-img-main {
+                width: 85%;
+                height: 280px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: rgba(20, 20, 20, 0.98);
+                flex-direction: column;
+                padding: 16px 5%;
+                gap: 0;
+                border-top: 1px solid var(--orange);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 14px 0;
+                font-size: 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-slide {
+                height: 300px;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .hero-stat {
+                border-right: none;
+                padding-right: 0;
+                margin-right: 0;
+            }
+
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mv-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="mainNav">
+        <a href="#home" class="nav-logo">
+            <img src="img/logo.png" alt="M&J Logo" onerror="this.style.display='none'">
+            <div class="nav-logo-text">
+                <div class="brand">M&amp;J Demolition &amp; Remodeling</div>
+                <div class="sub">Commercial &amp; Residential · LLC</div>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-diagonal"></div>
+        <div class="hero-img-panel">
+            <img src="img/1.jpg" alt="M&J Work">
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-helmet-safety"></i> Pasadena, Texas · Est. LLC</div>
+            <h1 class="hero-title">
+                M<span class="orange">&amp;</span>J<br>DEMO<span class="orange">.</span>
+            </h1>
+            <div class="hero-subtitle">Demolition &amp; Remodeling LLC</div>
+            <p class="hero-tagline">"From demolition to transformation."</p>
+            <p class="hero-desc">Professional demolition and remodeling services for residential and commercial
+                properties across Texas. Safe practices, clean job sites, exceptional results.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="num">9+</div>
+                    <div class="label">Years Experience</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">100%</div>
+                    <div class="label">Quality Guaranteed</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">TX</div>
+                    <div class="label">Licensed &amp; Professional</div>
+                </div>
+            </div>
+            <a href="#contact" class="btn-primary">
+                <i class="fas fa-hard-hat"></i>
+                Get a Free Estimate
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-eyebrow">Who We Are</div>
+        <h2 class="section-title">BUILT ON <span class="accent">PRECISION</span><br>DRIVEN BY RESULTS</h2>
+
+        <div class="about-layout">
+            <div class="about-images reveal">
+                <img class="about-img-main" src="img/2.jpg" alt="M&J Work"
+                    onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80'">
+                <img class="about-img-sec" src="img/3.jpg" alt="M&J Work Detail"
+                    onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&q=80'">
+                <div class="about-years-badge">
+                    <span class="big">9+</span>
+                    <span class="small">Years in<br>the Industry</span>
+                </div>
+            </div>
+
+            <div class="about-content reveal reveal-delay-2">
+                <div>
+                    <p>
+                        <strong>M&amp;J Demolition and Remodeling LLC</strong> was founded with the purpose of providing
+                        organized, safe, and professional demolition and renovation solutions. Led by <strong>Enrique
+                            Rivera</strong>, the company is committed to maintaining clean job sites, responsible
+                        practices, and detailed craftsmanship in every project.
+                    </p>
+                    <p>
+                        We understand that every demolition or remodel is the first step toward something new, and we
+                        take that responsibility seriously — ensuring each phase is handled with care and expertise,
+                        from residential homes to commercial buildings across Texas.
+                    </p>
+                </div>
+                <div class="about-divider"></div>
+                <div class="mv-row">
+                    <div class="mv-block">
+                        <h4><i class="fas fa-bullseye"></i> Mission</h4>
+                        <p>To deliver safe, efficient, and high-quality demolition and remodeling services that prepare
+                            and transform spaces while exceeding client expectations.</p>
+                    </div>
+                    <div class="mv-block">
+                        <h4><i class="fas fa-eye"></i> Vision</h4>
+                        <p>To be recognized as a trusted leader in demolition and remodeling services in Texas, known
+                            for reliability, professionalism, and excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits">
+        <div class="section-eyebrow">Why Choose Us</div>
+        <h2 class="section-title">THE <span class="accent">M&amp;J</span> STANDARD</h2>
+
+        <div class="benefits-grid">
+            <div class="benefit-item reveal">
+                <div class="benefit-num">01</div>
+                <div class="benefit-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Safe Demolition Practices</h3>
+                <p>Every demolition follows strict safety protocols. We protect your property, our crew, and the
+                    surrounding environment throughout the entire process.</p>
+            </div>
+            <div class="benefit-item reveal reveal-delay-1">
+                <div class="benefit-num">02</div>
+                <div class="benefit-icon"><i class="fas fa-broom"></i></div>
+                <h3>Clean &amp; Organized Sites</h3>
+                <p>We maintain tidy, organized job sites from start to finish. No mess left behind — we leave your
+                    property ready for the next phase.</p>
+            </div>
+            <div class="benefit-item reveal reveal-delay-2">
+                <div class="benefit-num">03</div>
+                <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                <h3>Reliable Timelines</h3>
+                <p>We commit to deadlines and communicate clearly at every stage. You'll always know where your project
+                    stands and what comes next.</p>
+            </div>
+            <div class="benefit-item reveal reveal-delay-1">
+                <div class="benefit-num">04</div>
+                <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                <h3>Detailed Craftsmanship</h3>
+                <p>From rough demolition to precision finishing work, every detail matters. We bring the same level of
+                    care to every task, big or small.</p>
+            </div>
+            <div class="benefit-item reveal reveal-delay-2">
+                <div class="benefit-num">05</div>
+                <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Customer Satisfaction</h3>
+                <p>Your vision is our mission. We work closely with clients to ensure every outcome matches their
+                    expectations — and then goes beyond them.</p>
+            </div>
+            <div class="benefit-item reveal reveal-delay-3">
+                <div class="benefit-num">06</div>
+                <div class="benefit-icon"><i class="fas fa-building"></i></div>
+                <h3>Residential &amp; Commercial</h3>
+                <p>From single-family homes to multi-unit commercial buildings, we bring the same expertise and
+                    dedication to every type of property.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">CORE <span class="accent">SERVICES</span></h2>
+
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-card-header">
+                    <div class="service-num-big">01</div>
+                    <div class="service-icon-wrap"><i class="fas fa-hammer"></i></div>
+                    <h3>Remodeling Services</h3>
+                </div>
+                <div class="service-card-body">
+                    <p>Full interior remodeling for kitchens, bathrooms, and living spaces. We handle everything from
+                        structural changes to finishing touches, delivering transformed spaces that exceed expectations.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Kitchen Remodeling</span>
+                        <span class="service-tag">Bathroom Remodeling</span>
+                        <span class="service-tag">Drywall Installation</span>
+                        <span class="service-tag">Carpentry</span>
+                        <span class="service-tag">Home Renovations</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-card-header">
+                    <div class="service-num-big">02</div>
+                    <div class="service-icon-wrap"><i class="fas fa-paint-roller"></i></div>
+                    <h3>Painting Services</h3>
+                </div>
+                <div class="service-card-body">
+                    <p>Interior and exterior painting with meticulous surface preparation. From walls and ceilings to
+                        trim and color changes, we deliver clean, lasting finishes every time.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Interior Painting</span>
+                        <span class="service-tag">Exterior Painting</span>
+                        <span class="service-tag">Surface Prep</span>
+                        <span class="service-tag">Color Changes</span>
+                        <span class="service-tag">Touch-Ups</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-card-header">
+                    <div class="service-num-big">03</div>
+                    <div class="service-icon-wrap"><i class="fas fa-spray-can-sparkles"></i></div>
+                    <h3>Cleaning Services</h3>
+                </div>
+                <div class="service-card-body">
+                    <p>Comprehensive cleaning solutions for residential and commercial properties. From
+                        post-construction cleanup to deep cleaning and move-in/move-out services, we leave every surface
+                        spotless.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Deep Cleaning</span>
+                        <span class="service-tag">Move-In/Out Cleaning</span>
+                        <span class="service-tag">Post-Construction</span>
+                        <span class="service-tag">Property Maintenance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-card-header">
+                    <div class="service-num-big">04</div>
+                    <div class="service-icon-wrap"><i class="fas fa-wrench"></i></div>
+                    <h3>General Maintenance &amp; Repairs</h3>
+                </div>
+                <div class="service-card-body">
+                    <p>Reliable property maintenance and minor repairs to keep your property in top condition. From
+                        fixture replacements to preventive maintenance, we handle it all with professionalism.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Minor Repairs</span>
+                        <span class="service-tag">Preventive Maintenance</span>
+                        <span class="service-tag">Fixture Replacement</span>
+                        <span class="service-tag">Touch-Ups</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="gallery-header">
+            <div class="section-eyebrow">Our Work</div>
+            <h2 class="section-title">WORK IN <span class="accent">PROGRESS</span> &amp; COMPLETED</h2>
+        </div>
+
+        <div class="gallery-carousel">
+            <div class="gallery-track" id="galleryTrack">
+                <div class="gallery-slide">
+                    <img src="img/1.jpeg" alt="M&J Work 1" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/2.jpeg" alt="M&J Work 2" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/3.jpeg" alt="M&J Work 3" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/4.jpeg" alt="M&J Work 4" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/5.jpeg" alt="M&J Work 5" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/6.jpeg" alt="M&J Work 6" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/7.jpeg" alt="M&J Work 7" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/8.jpeg" alt="M&J Work 8" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/9.jpeg" alt="M&J Work 9" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/10.jpeg" alt="M&J Work 10" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/11.jpeg" alt="M&J Work 11" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/12.jpeg" alt="M&J Work 12" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/13.jpeg" alt="M&J Work 13" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/14.jpeg" alt="M&J Work 14" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/15.jpeg" alt="M&J Work 15" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/16.jpeg" alt="M&J Work 16" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/17.jpeg" alt="M&J Work 17" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/18.jpeg" alt="M&J Work 18" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/19.jpeg" alt="M&J Work 19" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/20.jpeg" alt="M&J Work 20" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/21.jpeg" alt="M&J Work 21" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/22.jpeg" alt="M&J Work 22" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/23.jpeg" alt="M&J Work 23" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/24.jpeg" alt="M&J Work 24" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/25.jpeg" alt="M&J Work 25" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/26.jpeg" alt="M&J Work 26" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/27.jpeg" alt="M&J Work 27" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/28.jpeg" alt="M&J Work 28" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/29.jpeg" alt="M&J Work 29" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/30.jpeg" alt="M&J Work 30" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/31.jpeg" alt="M&J Work 31" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/32.jpeg" alt="M&J Work 32" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/33.jpeg" alt="M&J Work 33" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/34.jpeg" alt="M&J Work 34" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/35.jpeg" alt="M&J Work 35" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/36.jpeg" alt="M&J Work 36" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/37.jpeg" alt="M&J Work 37" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/38.jpeg" alt="M&J Work 38" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/39.jpeg" alt="M&J Work 39" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/40.jpeg" alt="M&J Work 40" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/41.jpeg" alt="M&J Work 41" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/42.jpeg" alt="M&J Work 42" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/43.jpeg" alt="M&J Work 43" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/44.jpeg" alt="M&J Work 44" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/45.jpeg" alt="M&J Work 45" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/46.jpeg" alt="M&J Work 46" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/47.jpeg" alt="M&J Work 47" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/48.jpeg" alt="M&J Work 48" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/49.jpeg" alt="M&J Work 49" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/50.jpeg" alt="M&J Work 50" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/51.jpeg" alt="M&J Work 51" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/52.jpeg" alt="M&J Work 52" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/53.jpeg" alt="M&J Work 53" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/54.jpeg" alt="M&J Work 54" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/55.jpeg" alt="M&J Work 55" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/56.jpeg" alt="M&J Work 56" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/57.jpeg" alt="M&J Work 57" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/58.jpeg" alt="M&J Work 58" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/59.jpeg" alt="M&J Work 59" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/60.jpeg" alt="M&J Work 60" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/61.jpeg" alt="M&J Work 61" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/62.jpeg" alt="M&J Work 62" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/63.jpeg" alt="M&J Work 63" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/64.jpeg" alt="M&J Work 64" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/65.jpeg" alt="M&J Work 65" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/66.jpeg" alt="M&J Work 66" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/67.jpeg" alt="M&J Work 67" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/68.jpeg" alt="M&J Work 68" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/69.jpeg" alt="M&J Work 69" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/70.jpeg" alt="M&J Work 70" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/71.jpeg" alt="M&J Work 71" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/72.jpeg" alt="M&J Work 72" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/73.jpeg" alt="M&J Work 73" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/74.jpeg" alt="M&J Work 74" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/75.jpeg" alt="M&J Work 75" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/76.jpeg" alt="M&J Work 76" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/77.jpeg" alt="M&J Work 77" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/78.jpeg" alt="M&J Work 78" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/79.jpeg" alt="M&J Work 79" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/80.jpeg" alt="M&J Work 80" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/81.jpeg" alt="M&J Work 81" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/82.jpeg" alt="M&J Work 82" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/83.jpeg" alt="M&J Work 83" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/84.jpeg" alt="M&J Work 84" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/85.jpeg" alt="M&J Work 85" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/86.jpeg" alt="M&J Work 86" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/87.jpeg" alt="M&J Work 87" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/88.jpeg" alt="M&J Work 88" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/89.jpeg" alt="M&J Work 89" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/90.jpeg" alt="M&J Work 90" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/91.jpeg" alt="M&J Work 91" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/92.jpeg" alt="M&J Work 92" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/93.jpeg" alt="M&J Work 93" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/94.jpeg" alt="M&J Work 94" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/95.jpeg" alt="M&J Work 95" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/96.jpeg" alt="M&J Work 96" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/97.jpeg" alt="M&J Work 97" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/98.jpeg" alt="M&J Work 98" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="img/99.jpeg" alt="M&J Work 99" onerror="this.parentElement.style.background='#0A0A0A'">
+                    <div class="gallery-slide-label">Work Completed</div>
+                </div>
+            </div>
+
+            <div class="gallery-controls">
+                <button class="gallery-btn" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                <div class="gallery-counter" id="galleryCounter">01 / 99</div>
+                <button class="gallery-btn" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-eyebrow">Get in Touch</div>
+        <h2 class="section-title">START YOUR <span class="accent">PROJECT</span><br>TODAY</h2>
+
+        <div class="contact-layout">
+            <div class="contact-left reveal">
+                <div class="contact-owner-card">
+                    <div class="owner-monogram">ER</div>
+                    <div class="owner-details">
+                        <div class="name">Enrique Rivera</div>
+                        <div class="role">Owner &amp; Lead Professional</div>
+                    </div>
+                </div>
+
+                <div class="contact-info-list">
+                    <div class="contact-info-row">
+                        <div class="ci-icon"><i class="fas fa-phone"></i></div>
+                        <div class="ci-text">
+                            <div class="label">Phone</div>
+                            <div class="value">832-691-1171</div>
+                        </div>
+                    </div>
+                    <div class="contact-info-row">
+                        <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="ci-text">
+                            <div class="label">Email</div>
+                            <div class="value">Office@mjd.company.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-info-row">
+                        <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
+                        <div class="ci-text">
+                            <div class="label">Address</div>
+                            <div class="value">3823 Red Bluff, Pasadena, TX 77503</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-grid">
+                    <a href="tel:8326911171" class="cta-btn cta-call">
+                        <i class="fas fa-phone"></i>
+                        <span>
+                            <span class="btn-lbl">Call Us</span>
+                            <span class="btn-val">832-691-1171</span>
+                        </span>
+                    </a>
+                    <a href="https://wa.me/18326911171" class="cta-btn cta-wa" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>
+                            <span class="btn-lbl">WhatsApp</span>
+                            <span class="btn-val">Message Us</span>
+                        </span>
+                    </a>
+                    <a href="mailto:Office@mjd.company.com" class="cta-btn cta-email">
+                        <i class="fas fa-envelope"></i>
+                        <span>
+                            <span class="btn-lbl">Email</span>
+                            <span class="btn-val">Send Message</span>
+                        </span>
+                    </a>
+                    <a href="sms:8326911171" class="cta-btn cta-sms">
+                        <i class="fas fa-comment-sms"></i>
+                        <span>
+                            <span class="btn-lbl">Text / SMS</span>
+                            <span class="btn-val">Quick Message</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-right reveal reveal-delay-2">
+                <div class="map-wrap">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.0!2d-95.1494!3d29.7077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s3823+Red+Bluff+Rd%2C+Pasadena%2C+TX+77503!5e0!3m2!1sen!2sus!4v1710000000000"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="map-footer">
+                    <i class="fas fa-location-dot"></i>
+                    3823 Red Bluff, Pasadena, TX 77503
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="img/logo.png" alt="M&J Logo" onerror="this.style.display='none'">
+                <div class="tagline">"From demolition to transformation."</div>
+                <p>Professional demolition and remodeling services for residential and commercial properties in Texas.
+                    Safe practices, clean sites, exceptional craftsmanship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Remodeling</a></li>
+                    <li><a href="#services">Painting</a></li>
+                    <li><a href="#services">Cleaning</a></li>
+                    <li><a href="#services">Maintenance &amp; Repairs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 M&amp;J Demolition &amp; Remodeling LLC. All rights reserved. | Pasadena, TX 77503</p>
+            <div class="footer-tagline">"From demolition to transformation."</div>
+        </div>
+    </footer>
+
+    <script>
+        // NAV SCROLL
+        window.addEventListener('scroll', () => {
+            document.getElementById('mainNav').style.boxShadow =
+                window.scrollY > 40 ? '0 4px 24px rgba(0,0,0,0.4)' : 'none';
+        });
+
+        // HAMBURGER
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+                document.getElementById('hamburger').classList.remove('open');
+            });
+        });
+
+        // GALLERY
+        let currentIndex = 0;
+        const totalSlides = 99;
+
+        function updateCounter() {
+            const n = String(currentIndex + 1).padStart(2, '0');
+            const t = String(totalSlides).padStart(2, '0');
+            document.getElementById('galleryCounter').textContent = `${n} / ${t}`;
+        }
+
+        function showSlide(index) {
+            currentIndex = index;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            document.getElementById('galleryTrack').style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateCounter();
+        }
+
+        function moveSlide(dir) { showSlide(currentIndex + dir); }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') moveSlide(-1);
+            if (e.key === 'ArrowRight') moveSlide(1);
+        });
+
+        let touchStartX = 0;
+        const track = document.getElementById('galleryTrack');
+        track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        track.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].screenX - touchStartX;
+            if (dx < -50) moveSlide(1);
+            if (dx > 50) moveSlide(-1);
+        });
+
+        setInterval(() => moveSlide(1), 5500);
+
+        // REVEAL
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
